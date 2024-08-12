@@ -1,49 +1,31 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
+	<view>
+		我是主页
+		<button @click="handleGo('/subpackages/pageA/index')">pageA</button>
+		<button @click="handleGo('/subpackages/pageB/index')">pageB</button>
+		<CMPA></CMPA>
 	</view>
 </template>
 
 <script>
+	import CMPA from '@/components/CMPA.vue'
 	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
+		components: {
+			CMPA,
 		},
-		onLoad() {
-
+		data() {
+			return {}
 		},
 		methods: {
-
+			handleGo(url) {
+				uni.navigateTo({
+					url
+				})
+			}
 		}
-	}
+	};
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+<style lang="scss">
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>
